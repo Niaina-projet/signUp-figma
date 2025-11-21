@@ -1,0 +1,501 @@
+/* --- CONTENEUR PRINCIPAL --- */
+:host {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.main-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative; /* Référent pour l'image absolue */
+    background-color: #1444A1;
+}
+
+/* --- IMAGE FLOTTANTE --- */
+.floating-illustration {
+    position: absolute;
+    bottom: 20px;
+    left: 26%; /* Ajustement fin pour la jonction */
+    transform: translateX(-50%);
+    height: 65vh; /* Taille responsive */
+    width: auto;
+    z-index: 10; /* Premier plan */
+    object-fit: contain;
+}
+
+/* --- PANNEAU GAUCHE (BLEU) --- */
+.left-panel {
+    width: 35%;
+    height: 100%;
+    padding: 80px 60px;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+}
+
+.left-panel h1 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+/* --- PANNEAU DROITE (BLANC) --- */
+.right-panel {
+    width: 65%;
+    height: 100%;
+    background-color: #FFFFFF;
+    
+    /* Coins arrondis à gauche */
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    
+    /* C'est ici qu'on gère le décalage global vers la droite */
+    padding-left: 10%; 
+    padding-right: 5%;
+    
+    position: relative;
+    z-index: 5;
+}
+
+/* Conteneur interne du formulaire */
+.form-wrapper {
+    width: 100%;
+    max-width: 600px;
+    /* Important : Flex column pour aligner les éléments les uns sous les autres */
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; <-- Par défaut c'est stretch ou start, donc OK pour l'alignement gauche */
+}
+
+.right-panel h2 {
+    font-size: 28px; /* Taille ajustée pour être plus visible */
+    font-weight: 800;
+    color: #0C0808;
+    margin-bottom: 30px;
+}
+
+/* --- BOUTONS SOCIAUX (LARGEUR 100%) --- */
+.social-buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+.social-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centre le texte */
+    
+    position: relative; /* Référence pour l'icône absolue */
+    
+    width: 100%;
+    height: 40px; /* Hauteur fine et élégante */
+    padding: 0 15px;
+    
+    border: none;
+    border-radius: 8px;
+    background-color: #F5F5F5;
+    color: #555;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.social-btn:hover {
+    background-color: #E0E0E0;
+}
+
+/* L'icône est sortie du flux pour être collée à gauche */
+.social-btn img {
+    position: absolute;
+    left: 20px;
+    width: 30px;
+    height: auto;
+}
+
+/* --- CHAMPS INPUT (LARGEUR 85%) --- */
+.input-group {
+    margin-bottom: 25px;
+    position: relative;
+    
+    width: 80%; 
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 0;
+    padding-right: 30px;
+    
+    border: none;
+    border-bottom: 1px solid #E0E0E0;
+    background: transparent;
+    outline: none;
+    font-size: 15px;
+    color: #0C0808;
+    font-weight: 500;
+    transition: border-color 0.3s;
+}
+
+.input-group input::placeholder {
+    color: #A0A0A0;
+    font-weight: 400;
+}
+
+.input-group input:focus {
+    border-bottom-color: #1444A1;
+}
+
+/* --- ICÔNE OEIL --- */
+.password-group .toggle-password {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #A0A0A0;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* --- BOUTON SUBMIT (LARGEUR 85%) --- */
+.submit-btn {
+    width: 80%; 
+    
+    height: 35px;
+    margin-top: 20px;
+    
+    background-color: #1444A1;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(20, 68, 161, 0.25);
+    transition: transform 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* --- FOOTER --- */
+.footer-text {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #888;
+    width: 85%;
+}
+
+.footer-text a {
+    color: #888;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* =========================================
+   ÉCRANS Tablette (max-width: 1024px)
+========================================= */
+@media (max-width: 1024px) {
+    
+    .main-container {
+        /* On permet au contenu de scroll si l'écran est trop petit en hauteur */
+        overflow-y: auto; 
+    }
+
+    .left-panel {
+        padding: 60px 30px;
+        width: 40%;
+    }
+
+    .right-panel {
+        width: 60%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .right-panel h2 {
+        text-align: center;
+    }
+    
+    .floating-illustration {
+        left: 25%;
+        height: 50vh;
+    }
+
+    /* 1. On empile les boutons verticalement au lieu de les garder côte à côte */
+    .social-buttons {
+        flex-direction: column; 
+        gap: 15px; /* Un peu d'espace entre les deux boutons */
+    }
+    
+    /* 2. On s'assure que le bouton prend toute la largeur disponible */
+    .social-btn {
+        width: 100%; 
+        justify-content: center;
+    }
+
+    /* 3. Si tu veux être sûr à 100% que ça ne chevauche jamais :
+        On annule le position: absolute de l'image pour la remettre dans le flux normal (Flexbox) */
+    .social-btn img {
+        position: static; /* Annule le 'absolute' du desktop */
+        margin-right: 15px; /* Ajoute une marge à droite de l'image */
+        width: 20px;
+        display: block; 
+        left: auto;
+    }
+    
+    /* Sur tablette, on passe souvent les inputs à 100% pour le confort tactile */
+    .input-group, .submit-btn {
+        width: 100%;
+    }
+    
+    .password-group .toggle-password {
+        right: 0; /* Reste collé au bord */
+    }
+}
+
+/* =========================================
+   ÉCRANS MOBILE (max-width: 992px)
+========================================= */
+@media (max-width: 992px) {
+
+    /* NOTE : La règle 'body' a été déplacée dans styles.scss (Global) */
+
+    .main-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    /* 1. Le panneau Bleu devient un Header en haut */
+    .left-panel {
+        width: 100%;
+        height: auto; /* Hauteur automatique selon le contenu */
+        min-height: 250px; /* Hauteur min pour être joli */
+        padding: 40px 30px;
+        align-items: center; /* Centre le texte */
+        text-align: center;
+    }
+
+    .left-panel h1 {
+        font-size: 28px;
+        margin-top: 0;
+        z-index: 20; /* Passe devant l'image si besoin */
+    }
+
+    /* 2. L'image flottante */
+    /* Sur mobile, soit on la cache, soit on la réduit fortement.
+        Ici, on la réduit et on la place en bas du header bleu */
+    .floating-illustration {
+        height: 200px;
+        left: 50%; /* Centrée horizontalement */
+        bottom: auto; /* On annule le bottom du desktop */
+        top: 120px; /* On la place dans le header bleu */
+        transform: translateX(-50%);
+        z-index: 10;
+    }
+
+    /* 3. Le panneau Blanc prend le reste */
+    .right-panel {
+        width: 100%;
+        height: auto;
+        flex: 1; /* Prend tout l'espace restant en bas */
+        
+        /* On change les arrondis : arrondis EN HAUT seulement */
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        border-bottom-left-radius: 0;
+        
+        padding: 40px 30px; /* Padding standard mobile */
+        justify-content: flex-start; /* On commence en haut */
+    }
+
+    .form-wrapper {
+        max-width: 100%; /* Utilise toute la largeur du téléphone */
+        margin-top: 20px;
+    }
+
+    .right-panel h2 {
+        margin-top: 15px;
+        font-size: 24px;
+        text-align: center; /* Titre centré sur mobile */
+    }
+
+    /* Inputs et boutons en pleine largeur pour le doigt */
+    .input-group, .submit-btn, .footer-text {
+        width: 100%;
+    }
+
+    /* Ajustement responsive des boutons sociaux pour qu'ils ne s'écrasent pas */
+    .social-buttons {
+        flex-direction: column; /* Empile les boutons Google/Facebook */
+        gap: 10px;
+    }
+    
+    .social-btn {
+        width: 100%;
+    }
+}
+/* ============================================================
+   2. IPAD PRO & PETITS LAPTOPS (993px -> 1200px)
+   Ici on garde l'écran divisé, mais on réduit l'image drastiquement
+   pour qu'elle ne touche pas le formulaire.
+   ============================================================ */
+   @media (min-width: 993px) and (max-width: 1200px) {
+    
+    /* 1. On ajuste les proportions des panneaux */
+    .left-panel {
+        width: 50%; /* On donne un peu plus de place au texte de gauche */
+        padding: 60px 30px;
+    }
+    
+    .left-panel h1 {
+        font-size: 24px; /* Texte un peu plus petit pour qu'il tienne */
+    }
+
+    .right-panel {
+        width: 50%;
+        padding-left: 3%; /* Marge réduite pour maximiser l'espace formulaire */
+        padding-right: 3%;
+    }
+
+    /* 2. C'EST ICI LA CORRECTION DE L'IMAGE */
+    .floating-illustration {
+        /* On réduit la hauteur (passer de 65vh à 35vh est nécessaire ici) */
+        height: 40vh; 
+        
+        /* On la recule fortement vers la gauche (dans le bleu) */
+        left: 25%; 
+    }
+    
+    /* 3. On garde les ajustements pour les boutons sociaux */
+    .social-buttons { flex-direction: column; gap: 10px; }
+    .social-btn { 
+        width: 100%;
+        height: 50px;
+     }
+    .social-btn img { position: static; margin-right: 10px; }
+    
+    /* 4. Ajustement inputs pour cette taille */
+    .input-group input {
+        font-size: 14px; /* Un peu plus petit */
+    }
+}
+
+/* =========================================
+   ÉCRANS GÉANTS & 4K (min-width: 2000px)
+========================================= */
+@media (min-width: 2000px) {
+    
+    /* 1. On débloque la largeur du formulaire */
+    /* Il passe de 600px à 1400px pour remplir l'espace */
+    .form-wrapper {
+        max-width: 1400px; 
+    }
+
+    /* 2. Le Panneau Gauche (Textes géants) */
+    .left-panel {
+        padding: 150px 100px;
+    }
+    
+    .left-panel h1 {
+        font-size: 80px; /* Titre énorme */
+        margin-bottom: 50px;
+    }
+
+    /* 3. Le Panneau Droite (Titres géants) */
+    .right-panel h2 {
+        font-size: 60px;
+        margin-bottom: 60px;
+    }
+
+    /* 4. Les Inputs (Champs de texte) */
+    .input-group {
+        margin-bottom: 50px; /* Plus d'espace entre les champs */
+    }
+
+    .input-group input {
+        padding: 25px 0; /* Hauteur de saisie confortable */
+        font-size: 35px; /* Texte écrit très gros */
+        border-bottom-width: 2px; /* Ligne plus épaisse */
+    }
+    
+    .input-group input::placeholder {
+        font-size: 35px; /* Placeholder gros aussi */
+    }
+
+    /* 5. Les Boutons (Submit & Social) */
+    .submit-btn {
+        height: 100px; /* Bouton très haut */
+        font-size: 35px;
+        margin-top: 40px;
+        border-radius: 20px;
+    }
+
+    .social-buttons {
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+
+    .social-btn {
+        height: 90px;
+        font-size: 28px;
+        border-radius: 15px;
+        padding: 0 40px;
+    }
+
+    .social-btn img {
+        width: 50px; /* Grosses icônes */
+        left: 40px;
+    }
+
+    /* 6. L'œil du mot de passe */
+    .password-group .toggle-password {
+        font-size: 30px;
+        right: 10px;
+    }
+
+    /* 7. Textes secondaires */
+    .footer-text {
+        font-size: 30px;
+        margin-top: 50px;
+    }
+
+    /* 8. Ajustement de l'image */
+    .floating-illustration {
+        left: 25%; /* On garde la position */
+        height: 60vh; /* L'image reste proportionnelle à la hauteur */
+    }
+}
+
+/* ============================================================
+   FIX SPÉCIAL : IPAD PRO & ÉCRANS HAUTS
+   Largeur Desktop (1025-1400) MAIS Hauteur Tablette (> 900px)
+   ============================================================ */
+   @media (min-width: 1025px) and (max-width: 1400px) and (min-height: 900px) {
+    
+    /* On garde le layout Desktop (Gauche/Droite) mais on réduit l'image
+       car l'écran est trop haut, ce qui rendrait l'image (70vh) trop grosse */
+       
+    .floating-illustration {
+        height: 45vh; /* On force une taille plus petite */
+        left: 18%;    /* On la recule pour éviter le chevauchement */
+        bottom: 20px;
+    }
+
+    /* Optionnel : Ajuster un peu le panneau gauche si besoin */
+    .left-panel {
+        padding-right: 20px; 
+    }
+}

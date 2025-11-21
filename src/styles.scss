@@ -1,0 +1,36 @@
+/* --- RESET & GLOBAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* 1. On s'assure que HTML et BODY prennent tout l'écran */
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Pas de scroll global */
+    margin: 0;
+}
+
+body {
+    background-color: #1444A1;
+    /* On retire le display:flex ici car c'est app-root qui va gérer le layout maintenant */
+}
+
+/* 2. C'EST LA CLÉ DU SUCCÈS : On force app-root à faire 100% */
+app-root {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive global */
+@media (max-width: 1024px) {
+    body, html, app-root {
+        overflow: auto;
+        height: auto;
+        min-height: 100vh;
+    }
+}
