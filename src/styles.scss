@@ -26,11 +26,9 @@ app-root {
     height: 100%;
 }
 
-/* Responsive global */
 @media (max-width: 1024px) {
     body, html, app-root {
-        overflow: auto;
-        height: auto;
-        min-height: 100vh;
+        height: 100vh;
+        overflow-y: auto; 
     }
 }

@@ -6,6 +6,7 @@
 }
 .main-container {
     display: flex;
+    overflow-y: auto;
     width: 100%;
     height: 100%;
     position: relative; /* Référent pour l'image absolue */
@@ -209,7 +210,7 @@
 @media (max-width: 1024px) {
     
     .main-container {
-        /* On permet au contenu de scroll si l'écran est trop petit en hauteur */
+        height: 100vh;
         overflow-y: auto; 
     }
 
