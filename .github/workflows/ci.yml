@@ -3,7 +3,7 @@ name: CI Angular
 # Quand est-ce que le robot se réveille ?
 on:
   push:
-    branches: [ "main" ] # Quand tu pousses sur main
+    branches: [ "**" ] # Quand tu pousses sur main
   pull_request:
     branches: [ "main" ] # Quand tu proposes une fusion vers main
 
