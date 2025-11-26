@@ -1,0 +1,34 @@
+name: CI Angular
+
+# Quand est-ce que le robot se réveille ?
+on:
+  push:
+    branches: [ "main" ] # Quand tu pousses sur main
+  pull_request:
+    branches: [ "main" ] # Quand tu proposes une fusion vers main
+
+# Qu'est-ce qu'il doit faire ?
+jobs:
+  build-test:
+    runs-on: ubuntu-latest # Le robot utilise un ordinateur Linux virtuel
+
+    steps:
+    # 1. Il récupère ton code
+    - name: Checkout du code
+      uses: actions/checkout@v4
+
+    # 2. Il installe Node.js (comme sur ton PC)
+    - name: Installation Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        cache: 'npm'
+
+    # 3. Il installe les paquets (npm install propre)
+    - name: Installation des dépendances
+      run: npm ci
+
+    # 4. Le Test Ultime : Il essaie de construire le site
+    # Si cette commande échoue, le robot alerte "ERREUR"
+    - name: Vérification du Build (ng build)
+      run: npm run build -- --configuration production
