@@ -1,0 +1,14 @@
+<div class="input-group">
+    <input 
+        [type]="currentType" 
+        [placeholder]="placeholder" 
+        required
+    >
+
+    <i *ngIf="type === 'password'"
+       class="fa-solid toggle-password"
+       [class.fa-eye]="!isPasswordHidden"
+       [class.fa-eye-slash]="isPasswordHidden"
+       (click)="togglePassword()">
+    </i>
+</div>

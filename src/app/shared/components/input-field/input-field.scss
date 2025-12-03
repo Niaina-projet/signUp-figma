@@ -1,0 +1,58 @@
+/* :host permet au composant de prendre la largeur qu'on lui donne */
+:host {
+    display: block;
+    width: 100%;
+}
+
+.input-group {
+    position: relative;
+    width: 100%; /* Il remplit l'espace disponible */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 0;
+    padding-right: 35px; /* Espace pour ne pas écrire sur l'œil */
+    
+    border: none;
+    border-bottom: 1px solid #E0E0E0;
+    background: transparent;
+    outline: none;
+    
+    font-size: 15px;
+    color: #0C0808;
+    font-weight: 500;
+    transition: border-color 0.3s;
+}
+
+.input-group input::placeholder {
+    color: #A0A0A0;
+    font-weight: 400;
+}
+
+.input-group input:focus {
+    border-bottom-color: #1444A1;
+}
+
+/* L'icône œil */
+.toggle-password {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #A0A0A0;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 2;
+}
+
+/* --- RESPONSIVE 4K --- */
+@media (min-width: 2000px) {
+    .input-group input {
+        padding: 25px 0;
+        font-size: 35px;
+        border-bottom-width: 2px;
+    }
+    .input-group input::placeholder { font-size: 35px; }
+    .toggle-password { font-size: 30px; right: 10px; }
+}
