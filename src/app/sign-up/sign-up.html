@@ -23,19 +23,25 @@
             </div>
 
             <form action="#" class="login-form">
-                <div class="input-group">
-                    <input type="text" placeholder="Full Name" required>
-                </div>
-
-                <div class="input-group">
-                    <input type="email" placeholder="Email Address" required>
-                </div>
-
-                <div class="input-group password-group">
-                    <input type="password" placeholder="Password" required>
-                    <i class="fa-solid fa-eye-slash toggle-password"></i>
-                </div>
-
+    
+                <app-input-field 
+                    class="field-spacing"
+                    placeholder="Full Name" 
+                    type="text">
+                </app-input-field>
+            
+                <app-input-field 
+                    class="field-spacing"
+                    placeholder="Email Address" 
+                    type="email">
+                </app-input-field>
+            
+                <app-input-field 
+                    class="field-spacing"
+                    placeholder="Password" 
+                    type="password">
+                </app-input-field>
+            
                 <button type="submit" class="submit-btn">Create Account</button>
             </form>
 

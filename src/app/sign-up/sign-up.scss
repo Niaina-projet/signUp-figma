@@ -113,7 +113,7 @@
     height: auto;
 }--- */
 
-/* --- CHAMPS INPUT (LARGEUR 85%) --- */
+/* --- CHAMPS INPUT (LARGEUR 85%)
 .input-group {
     margin-bottom: 25px;
     position: relative;
@@ -145,7 +145,7 @@
     border-bottom-color: #1444A1;
 }
 
-/* --- ICÔNE OEIL --- */
+/* --- ICÔNE OEIL ---
 .password-group .toggle-password {
     position: absolute;
     right: 0;
@@ -154,6 +154,13 @@
     color: #A0A0A0;
     cursor: pointer;
     font-size: 14px;
+} */
+
+/* Nouvelle classe pour espacer les composants Input */
+.field-spacing {
+    display: block;
+    margin-bottom: 25px;
+    width: 80%; /* La largeur est décidée ici par le parent */
 }
 
 /* --- BOUTON SUBMIT (LARGEUR 85%) --- */
@@ -238,7 +245,7 @@
         width: 20px;
         display: block; 
         left: auto;
-    }*/
+    }
     
     .input-group, .submit-btn {
         width: 100%;
@@ -246,6 +253,9 @@
     
     .password-group .toggle-password {
         right: 0;
+    }*/
+    .field-spacing {
+        width: 100%;
     }
 }
 
@@ -309,10 +319,10 @@
         text-align: center;
     }
 
-    /* Inputs et boutons en pleine largeur pour le doigt */
+    /* Inputs et boutons en pleine largeur pour le doigt
     .input-group, .submit-btn, .footer-text {
         width: 100%;
-    }
+    } */
 
     /* Ajustement responsive des boutons sociaux pour qu'ils ne s'écrasent pas
     .social-buttons {
@@ -357,11 +367,11 @@
         width: 100%;
         height: 50px;
      }
-    .social-btn img { position: static; margin-right: 10px; } */
+    .social-btn img { position: static; margin-right: 10px; }
     
     .input-group input {
         font-size: 14px;
-    }
+    } */
 }
 
 /* =========================================
@@ -387,7 +397,7 @@
         margin-bottom: 60px;
     }
 
-    .input-group {
+    /*.input-group {
         margin-bottom: 50px;
     }
 
@@ -399,6 +409,10 @@
     
     .input-group input::placeholder {
         font-size: 35px;
+    }*/
+
+    .field-spacing {
+        margin-bottom: 50px;
     }
 
     .submit-btn {
@@ -423,12 +437,12 @@
     .social-btn img {
         width: 50px;
         left: 40px;
-    } */
+    }
 
     .password-group .toggle-password {
         font-size: 30px;
         right: 10px;
-    }
+    } */
 
     .footer-text {
         font-size: 30px;
