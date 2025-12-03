@@ -1,0 +1,73 @@
+/* :host permet de dire "le composant lui-même" prend 100% de la largeur du parent */
+:host {
+    display: block;
+    width: 100%;
+}
+
+/* --- STYLE DE BASE (Desktop) --- */
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+    width: 100%;
+    height: 40px;
+    padding: 0 15px;
+    
+    border: none;
+    border-radius: 8px;
+    background-color: #F5F5F5;
+    color: #555;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.social-btn:hover {
+    background-color: #E0E0E0;
+}
+
+.social-btn img {
+    position: absolute;
+    left: 20px;
+    width: 20px;
+    height: auto;
+}
+
+/* --- RESPONSIVE : TABLETTE & MOBILE (< 1024px) --- */
+/* C'est ici qu'on gère le changement d'aspect interne du bouton */
+@media (max-width: 1024px) {
+    /* On annule le positionnement absolu pour éviter le chevauchement */
+    .social-btn img {
+        position: static; 
+        margin-right: 15px;
+        display: block;
+        left: auto;
+    }
+}
+
+/* --- RESPONSIVE : NEST HUB / ÉCRANS COURTS --- */
+@media (min-width: 900px) and (max-height: 700px) {
+    .social-btn {
+        height: 35px; /* Plus petit */
+        font-size: 12px;
+    }
+}
+
+/* --- RESPONSIVE : 4K / TV (> 2000px) --- */
+/* Le bouton devient géant tout seul */
+@media (min-width: 2000px) {
+    .social-btn {
+        height: 90px;
+        font-size: 28px;
+        border-radius: 15px;
+        padding: 0 40px;
+    }
+
+    .social-btn img {
+        width: 50px;
+        left: 40px; /* On garde l'absolu ici car il y a de la place */
+    }
+}

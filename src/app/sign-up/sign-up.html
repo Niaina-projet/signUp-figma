@@ -11,14 +11,15 @@
             <h2>Create Account</h2>
 
             <div class="social-buttons">
-                <button class="social-btn google">
-                    <img src="/assets/icons/google.png" alt="Google Logo">
-                    Sign up with Google
-                </button>
-                <button class="social-btn facebook">
-                    <img src="/assets/icons/facebook.png" alt="Facebook Logo">
-                    Sign up with Facebook
-                </button>
+                <app-social-button 
+                    label="Sign up with Google" 
+                    iconSrc="assets/icons/google.png">
+                </app-social-button>
+            
+                <app-social-button 
+                    label="Sign up with Facebook" 
+                    iconSrc="assets/icons/facebook.png">
+                </app-social-button>
             </div>
 
             <form action="#" class="login-form">
